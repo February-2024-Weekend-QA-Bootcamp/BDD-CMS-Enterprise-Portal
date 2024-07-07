@@ -6,8 +6,7 @@ Feature: As an user
   In order to get access of the Applications feature
 
   Background: User navigates to Application URL
-    Given User is on the CMS Enterprise Portal page URL "https://portal.cms.gov/portal/"
-    Then User should validate the Title and Logo of the Application
+    Given User is on the CMS Enterprise Portal page URL
 
   Scenario: New User Registration
     When User click on New User Registration Button

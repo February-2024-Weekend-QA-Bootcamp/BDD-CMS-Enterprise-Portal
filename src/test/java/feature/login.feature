@@ -1,6 +1,6 @@
 #Author: tofael483@gmail.com
 #Date: July 6th, 2024
-@Login
+@login @smoke
 Feature: Log In
   As an User
   I want to Login with my credentials to CMS Enterprise Portal

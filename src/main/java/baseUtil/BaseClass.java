@@ -16,7 +16,7 @@ import java.time.Duration;
 public class BaseClass {
 	public static WebDriver driver;
 	Configuration configuration;
-	public LogIn logIn;
+	public static LogIn logIn;
 	
 	public void setUp() {
 		configuration = new Configuration(Profile.GENERAL);

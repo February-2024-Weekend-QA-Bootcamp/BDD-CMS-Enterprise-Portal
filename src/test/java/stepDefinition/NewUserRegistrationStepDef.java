@@ -1,10 +1,13 @@
 package stepDefinition;
 
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class NewUserRegistrationStepDef {
 
+	
+	
 	@When("User click on New User Registration Button")
 	public void user_click_on_new_user_registration_button() {
 	   
