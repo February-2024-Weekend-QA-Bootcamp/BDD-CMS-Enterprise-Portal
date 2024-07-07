@@ -24,7 +24,6 @@
 			<groupId>io.cucumber</groupId>
 			<artifactId>cucumber-junit</artifactId>
 			<version>7.18.0</version>
-			<scope>test</scope>
 		</dependency>
 
 		<!-- Selenium Java dependency is used to get access of Java based selenium -->
