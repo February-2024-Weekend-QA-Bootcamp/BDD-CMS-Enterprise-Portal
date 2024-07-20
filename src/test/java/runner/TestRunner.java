@@ -7,7 +7,7 @@ import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-		tags 		= "@login",
+		tags 		= "@newUserRegistration",
 		features 	= "src/test/java/feature",
 		glue 		= {"stepDefinition", "baseUtil"},
 		monochrome 	= false,
