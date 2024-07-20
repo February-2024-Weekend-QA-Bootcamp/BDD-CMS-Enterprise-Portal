@@ -8,6 +8,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import constants.Profile;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import pages.LogIn;
+import pages.NewUserRegistration;
 import utils.Configuration;
 import static utils.IConstant.*;
 
@@ -16,8 +17,10 @@ import java.time.Duration;
 public class BaseClass {
 	public static WebDriver driver;
 	Configuration configuration;
-	public LogIn logIn;
+	public static LogIn logIn; // Nasir: what is the reason of static here
+	public static NewUserRegistration newUserRegistration;
 	
+	// Why we don't use annotation here? why in hook class
 	public void setUp() {
 		configuration = new Configuration(Profile.GENERAL);
 		initDriver();
@@ -61,6 +64,7 @@ public class BaseClass {
 		
 	public void initClass() {
 		logIn = new LogIn(driver);
+		newUserRegistration = new NewUserRegistration(driver);
 	}
 	
 	public void tearUp() {

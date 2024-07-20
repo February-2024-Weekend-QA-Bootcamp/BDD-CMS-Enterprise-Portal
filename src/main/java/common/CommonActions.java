@@ -27,7 +27,7 @@ public class CommonActions {
 
 	private static final Logger logger = LoggerFactory.getLogger(CommonActions.class);
 
-	public WebDriver driver;
+	public static WebDriver driver;
 
 	public CommonActions(WebDriver driver) {
 		this.driver = driver;
@@ -125,14 +125,14 @@ public class CommonActions {
 		}
 	}
 
-	public void clickUsingJavascriptExecutor(WebDriver driver, WebElement element) {
+	public static void clickUsingJavascriptExecutor(WebDriver driver, WebElement element) {
 		// JavascriptExecutor js = (JavascriptExecutor)driver; // instead of writing
 		// this 'js', we can write below one
 		((JavascriptExecutor) driver).executeScript("arguments[0].click()", element);
 		logger.info("Javascript Executor CLICKING ... on element ---> " + element);
 	}
 
-	public void scrollIntoViewUsingJavascriptExecutor(WebDriver driver, WebElement element) {
+	public static void scrollIntoViewUsingJavascriptExecutor(WebDriver driver, WebElement element) {
 		// JavascriptExecutor js = (JavascriptExecutor)driver; // instead of writing
 		// this 'js', we can write below one
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true)", element);
@@ -140,7 +140,7 @@ public class CommonActions {
 	}
 
 	// we will use it for sending value by JavascriptExecutor
-	public void usingJavascriptExecutor(WebDriver driver, String script, WebElement element) {
+	public static void usingJavascriptExecutor(WebDriver driver, String script, WebElement element) {
 		// JavascriptExecutor js = (JavascriptExecutor)driver; // instead of writing
 		// this 'js', we can write below one
 		((JavascriptExecutor) driver).executeScript(script, element);
@@ -173,7 +173,7 @@ public class CommonActions {
 		return element.getAttribute(atr);
 	}
 
-	public void verifyAttribute01(WebElement element, Attribute attribute, String expectedValue) {
+	public static void verifyAttribute01(WebElement element, Attribute attribute, String expectedValue) {
 		String actualValue = getAttributeValue(element, attribute); // This method from above
 		// element.getAttribute(attribute.toString());
 		logger.info(element + " ---> We can Enter : " + actualValue
@@ -181,11 +181,11 @@ public class CommonActions {
 		Assert.assertEquals(expectedValue, actualValue);
 	}
 
-	public void verifyLengthOfTheFieldContent(WebElement element, String expected) {
+	public static void verifyLengthOfTheFieldContent(WebElement element, String expected) {
 		verifyAttribute01(element, Attribute.MAX_LENGTH, expected);
 	}
 
-	public void inputTextThenClickTab(WebElement element, String input) {
+	public static void inputTextThenClickTab(WebElement element, String input) {
 		try {
 			element.sendKeys(input, Keys.TAB);
 			logger.info(input + " <-----> has been put into <-----> " + element + " and then clicked by Tab Key");
@@ -197,18 +197,18 @@ public class CommonActions {
 	}
 
 	// Loggers is changed only
-	public void verifyAttribute02(WebElement element, Attribute attribute, String expectedErrorMsg) {
+	public static void verifyAttribute02(WebElement element, Attribute attribute, String expectedErrorMsg) {
 		String actual = getAttributeValue(element, attribute);
 		// element.getAttribute(attribute.toString());
 		logger.info(element + " ---> Actual Error Message is : " + actual + ". And Expected was: " + expectedErrorMsg);
 		Assert.assertEquals(expectedErrorMsg, actual);
 	}
 
-	public void verifyErrorMsgUnderTheField(WebElement element, String expectedErrorMsg) {
+	public static void verifyErrorMsgUnderTheField(WebElement element, String expectedErrorMsg) {
 		verifyAttribute02(element, Attribute.INNER_TEXT, expectedErrorMsg); // "innerHTML"
 	}
 
-	public void clearTextFromTheField(WebElement element) {
+	public static void clearTextFromTheField(WebElement element) {
 		try {
 			element.clear();
 			logger.info("The Text from the " + element + " ---> is cleared");
@@ -219,7 +219,7 @@ public class CommonActions {
 		}
 	}
 
-	public void selectElelementFromDropdownOnebyOne(WebElement element, List<WebElement> elements) {
+	public static void selectElelementFromDropdownOnebyOne(WebElement element, List<WebElement> elements) {
 		try {
 			Select select = new Select(element);
 			for (int i = 1; i < elements.size(); i++) {
@@ -235,7 +235,7 @@ public class CommonActions {
 		}
 	}
 
-	public void selectDropdown(WebElement element, String value) {
+	public static void selectDropdown(WebElement element, String value) {
 		try {
 			Select select = new Select(element);
 			select.selectByVisibleText(value);
@@ -247,18 +247,18 @@ public class CommonActions {
 		}
 	}
 
-	public void verifyAttribute03(WebElement element, Attribute attribute, String expectedErrorMsg) {
+	public static void verifyAttribute03(WebElement element, Attribute attribute, String expectedErrorMsg) {
 		String actual = getAttributeValue(element, attribute) + " is a required field.";
 		// element.getAttribute(attribute.toString());
 		logger.info(element + " ---> Actual Error Message is : " + actual + ". And Expected was: " + expectedErrorMsg);
 		Assert.assertEquals(expectedErrorMsg, actual);
 	}
 
-	public void verifyErrorMsgTopOfThePage(WebElement element, String expectedErrorMsg) {
+	public static void verifyErrorMsgTopOfThePage(WebElement element, String expectedErrorMsg) {
 		verifyAttribute03(element, Attribute.INNER_TEXT, expectedErrorMsg); // "innerHTML"
 	}
 
-	public void clickElementThenTab(WebElement element) {
+	public static void clickElementThenTab(WebElement element) {
 		try {
 			element.sendKeys(Keys.TAB);
 			logger.info(element + "<---------> has been clicked, then click Tab Key");
@@ -269,7 +269,7 @@ public class CommonActions {
 		}
 	}
 
-	public void inputTextThenClickEnter(WebElement element, String input) {
+	public static void inputTextThenClickEnter(WebElement element, String input) {
 		try {
 			element.sendKeys(input, Keys.ENTER);
 			logger.info(input + " <-----> has been put into <-----> " + element + " and then clicked by Enter Key");
@@ -280,7 +280,7 @@ public class CommonActions {
 		}
 	}
 
-	public void inputTextThenClickReturn(WebElement element, String input) {
+	public static void inputTextThenClickReturn(WebElement element, String input) {
 		try {
 			element.sendKeys(input, Keys.RETURN);
 			logger.info(input + " <-----> has been put into <-----> " + element + " and then clicked by Enter Key");
@@ -291,7 +291,7 @@ public class CommonActions {
 		}
 	}
 
-	public boolean isPresent(By locator) {
+	public static boolean isPresent(By locator) {
 		List<WebElement> elements = driver.findElements(locator);
 		if (elements.size() != 0) {
 			logger.info(elements + " --- > This element is present and has match of : " + elements.size());
@@ -303,13 +303,13 @@ public class CommonActions {
 	}
 
 	// very very important interview question
-	public void failText() {
-		logger.info(getClass().getMethods()[0].getName() + " ---> has failed");
-		Assert.fail();
-	}
+//	public static void failText() {
+//		logger.info(getClass().getMethods()[0].getName() + " ---> has failed");
+//		Assert.fail();
+//	}
 
 	// very very important interview question
-	public String getSreenShot(String testName, WebDriver driver) {
+	public static String getSreenShot(String testName, WebDriver driver) {
 		TakesScreenshot ss = (TakesScreenshot) driver;
 		String path = System.getProperty("user.dir") + "/test-output/screenShots";
 		File folder = new File(path);
@@ -333,7 +333,7 @@ public class CommonActions {
 		return targetFile.getAbsolutePath();
 	}
 
-	public void switchToChildWindow(WebDriver driver, WebElement element) {
+	public static void switchToChildWindow(WebDriver driver, WebElement element) {
 		try {
 			clickElement(element);
 			Set<String> allWindowHandles = driver.getWindowHandles();
@@ -349,7 +349,7 @@ public class CommonActions {
 		}
 	}
 
-	public void verifyErrorMsg(WebElement element, String expectedErrorMsg) {
+	public static void verifyErrorMsg(WebElement element, String expectedErrorMsg) {
 		verifyAttribute02(element, Attribute.INNER_TEXT, expectedErrorMsg); // "innerHTML"
 	}
 

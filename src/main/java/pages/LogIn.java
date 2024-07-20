@@ -12,6 +12,7 @@ public class LogIn {
 	WebDriver driver;
 	
 	public LogIn(WebDriver driver) {
+		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
 	
