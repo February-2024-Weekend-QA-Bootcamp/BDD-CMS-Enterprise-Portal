@@ -54,11 +54,24 @@ public class LogIn {
 		pause(3);
 	}
 	
+	public void validateUserId(String uId) {
+		elementDisplayed(userId);
+		inputText(userId, uId);
+		pause(3);
+	}
+	
 	public void validatePassword() {
 		elementDisplayed(password);
 		inputText(password, "OnthrallTest@1234");
 		pause(3);
 	}
+	
+	public void validatePassword(String pwd) {
+		elementDisplayed(password);
+		inputText(password, pwd);
+		pause(3);
+	}
+	
 	
 	public void validateCheckBox() {
 		elementSelected(checkBox);

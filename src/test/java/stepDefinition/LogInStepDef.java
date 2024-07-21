@@ -21,6 +21,16 @@ public class LogInStepDef extends BaseClass {
 	public void user_enter_password_in_password_field() {
 	   logIn.validatePassword();
 	}
+	
+	@When("User enter UserId as {string}")
+	public void user_enter_user_id_as(String string) {
+	    logIn.validateUserId(string);
+	}
+
+	@When("User enter Password as {string}")
+	public void user_enter_password_as(String string) {
+	   logIn.validatePassword(string);
+	}
 
 	@When("User click the check box of I agree to the Terms and Conditions")
 	public void user_click_the_check_box_of_i_agree_to_the_terms_and_conditions() {

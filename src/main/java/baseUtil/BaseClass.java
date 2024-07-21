@@ -7,6 +7,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 import constants.Profile;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import pages.ForgotUserId;
 import pages.LogIn;
 import pages.NewUserRegistration;
 import utils.Configuration;
@@ -17,10 +18,14 @@ import java.time.Duration;
 public class BaseClass {
 	public static WebDriver driver;
 	Configuration configuration;
-	public static LogIn logIn; // Nasir: what is the reason of static here
+	// Make below static to avoid NullPointerException
+	public static LogIn logIn; 
 	public static NewUserRegistration newUserRegistration;
+	public static ForgotUserId forgotUserId;
 	
-	// Why we don't use annotation here? why in hook class
+	// We don't use annotation here. Annotation is used in hook class
+	// because step definition class extends base class, if base class contains annotation, 
+	// it will show exception because step definition class contain annotation too
 	public void setUp() {
 		configuration = new Configuration(Profile.GENERAL);
 		initDriver();
@@ -65,6 +70,7 @@ public class BaseClass {
 	public void initClass() {
 		logIn = new LogIn(driver);
 		newUserRegistration = new NewUserRegistration(driver);
+		forgotUserId = new ForgotUserId(driver);
 	}
 	
 	public void tearUp() {
