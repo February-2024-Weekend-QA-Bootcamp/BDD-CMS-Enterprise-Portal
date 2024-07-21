@@ -18,7 +18,8 @@ Feature: As an user
     When User complete Step two process 
     And click on Next Button
     Then User navigate to Step three of the enrollment process
-    
+  
+  @smoke  
   Scenario: User click on Cancel Button in Step One
     When User click on New User Registration Button
     Then User navigate to Step one of the enrollment process

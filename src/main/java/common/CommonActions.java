@@ -246,6 +246,18 @@ public class CommonActions {
 			Assert.fail();
 		}
 	}
+	
+	public static void selectDropdown2(WebElement element, String value, Keys key) {
+		try {
+			Select select = new Select(element);
+			select.selectByVisibleText(value + Keys.TAB);
+			logger.info(value + " has been selected from the dropdown of ---> " + element);
+		} catch (NullPointerException | NoSuchElementException e) {
+			e.printStackTrace();
+			logger.info(element + " : This element Not Found");
+			Assert.fail();
+		}
+	}
 
 	public static void verifyAttribute03(WebElement element, Attribute attribute, String expectedErrorMsg) {
 		String actual = getAttributeValue(element, attribute) + " is a required field.";
