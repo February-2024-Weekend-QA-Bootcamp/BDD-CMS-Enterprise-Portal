@@ -45,6 +45,12 @@ public class CommonActions {
 		}
 	}
 
+	// the below is called Java doc
+	
+	/**
+	 * to verify the element is enable or disable
+	 * @param element accept the web element
+	 */
 	public static void elementEnabled(WebElement element) {
 		try {
 			boolean flag = element.isEnabled();
