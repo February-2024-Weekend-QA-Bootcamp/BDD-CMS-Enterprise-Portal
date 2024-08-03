@@ -34,8 +34,8 @@ Feature: Log In
     Then User will move to multi factor authentication modal
 
     Examples: 
-      | User Id       | Password            |
+      | User Id         | Password            |
       | 'enthrall_12' | 'OnthrallTest@1234' |
-      | 'Michael_00'  | 'Bolt@1234'         |
-      | 'Pin_77'      | 'Xu@3212'           |
+      | 'Narima.tushty@gmail.com'  | 'Login@123456789' |
+      | 'Pin_77'        | 'Xu@3212'           |
 # This is imperative BDD, line by line description
