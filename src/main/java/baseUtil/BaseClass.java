@@ -50,7 +50,7 @@ public class BaseClass {
 			break;
 
 		case FIREFOX:
-			System.setProperty("webdriver.gecko.driver", "./driver/geckodriver.exe");
+			System.setProperty("webdriver.gecko.driver", "./driver/geckodriver2.exe");
 			driver = new FirefoxDriver();
 			break;
 
