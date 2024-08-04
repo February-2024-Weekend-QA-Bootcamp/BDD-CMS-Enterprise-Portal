@@ -18,3 +18,4 @@ import io.cucumber.junit.CucumberOptions;
 public class TestRunner {
 
 }
+// we have to use or in line 10, to run simultaneous tag
