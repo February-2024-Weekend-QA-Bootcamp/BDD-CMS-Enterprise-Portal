@@ -19,6 +19,7 @@
 			<artifactId>cucumber-java</artifactId>
 			<version>7.18.0</version>
 		</dependency>
+		<!-- new version accept and, not the coma-->
 
 		<!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-junit -->
 		<dependency>
